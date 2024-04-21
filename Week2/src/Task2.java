@@ -1,7 +1,17 @@
+import java.util.Scanner;
+
 public class Task2 {
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5, 6};
+        Scanner input  = new Scanner(System.in);
+        System.out.print("Enter Array Length : ");
+        int n = input.nextInt();
+
+        int[] nums = new int[n];
+        for(int i = 0; i < nums.length; i++) {
+            System.out.print("Enter element number "+(i+1)+" : ");
+            nums[i] = input.nextInt();
+        }
         System.out.println("Sum = "+sum(nums));
         System.out.println("Average = "+average(nums));
     }
