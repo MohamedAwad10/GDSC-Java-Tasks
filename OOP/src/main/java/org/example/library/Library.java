@@ -70,7 +70,7 @@ public void deleteItem(LibraryResource libraryResource) {
 public void displayAllItems() {
     System.out.println("Library items : ");
     for (LibraryResource libResource : this.libraryResources) {
-        libResource.displayInformaiton();
+        libResource.displayInformation();
         System.out.println();
     }
 }

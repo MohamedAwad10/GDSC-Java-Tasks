@@ -17,11 +17,10 @@ public class Book extends LibraryResource {
         this.countPages = countPages;
     }
 
+
     @Override
-    public void displayInformaiton() {
-        System.out.println("Book Title : "+this.getTitle());
-        System.out.println("Author Name : "+this.getAuthor());
-        System.out.println("Publication Year : "+this.getPublicationYear());
-        System.out.println("Count Pages : "+this.countPages);
+    public void displayInformation() {
+        super.displayCommonInformaiton();
+        System.out.println("Pages Count : "+this.countPages);
     }
 }

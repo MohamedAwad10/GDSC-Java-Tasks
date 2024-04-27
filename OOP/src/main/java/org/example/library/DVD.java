@@ -17,10 +17,8 @@ public class DVD extends LibraryResource {
     }
 
     @Override
-    public void displayInformaiton() {
-        System.out.println("DVD Title : "+this.getTitle());
-        System.out.println("Author Name : "+this.getAuthor());
-        System.out.println("Publication Year : "+this.getPublicationYear());
+    public void displayInformation() {
+        super.displayCommonInformaiton();
         System.out.println("Duration : "+this.duration);
     }
 }

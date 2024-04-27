@@ -46,7 +46,13 @@ public abstract class LibraryResource {
         this.available = available;
     }
 
-    public abstract void displayInformaiton();
+    protected void displayCommonInformaiton(){
+        System.out.println("Book Title : "+this.getTitle());
+        System.out.println("Author Name : "+this.getAuthor());
+        System.out.println("Publication Year : "+this.getPublicationYear());
+    }
+
+    public abstract void displayInformation();
 
     public boolean checkAvailability() {
         return available;
