@@ -47,7 +47,7 @@ public abstract class LibraryResource {
     }
 
     protected void displayCommonInformaiton(){
-        System.out.println("Book Title : "+this.getTitle());
+        System.out.println("Title : "+this.getTitle());
         System.out.println("Author Name : "+this.getAuthor());
         System.out.println("Publication Year : "+this.getPublicationYear());
     }
