@@ -28,10 +28,15 @@ public class Main {
         myLibrary.addItem(book2);
         myLibrary.addItem(m1);
         myLibrary.addItem(book4);
-        myLibrary.deleteItem(book1);
+//        myLibrary.deleteItem(book1);
         myLibrary.displayAllItems();
 
+        myLibrary.checkAvailability(book1);
+
+//        myLibrary.updateItem(book2, book3);
+        myLibrary.deleteItem(2);
         myLibrary.updateItem(book2, book3);
+//        myLibrary.deleteItem(book1);
         myLibrary.displayAllItems();
     }
 }

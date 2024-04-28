@@ -4,13 +4,11 @@ public abstract class LibraryResource {
     private String title;
     private String author;
     private int publicationYear;
-    private boolean available;
 
     public LibraryResource(String title, String author, int publicationYear) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
-        this.available = true;
     }
 
 
@@ -38,14 +36,6 @@ public abstract class LibraryResource {
         this.publicationYear = publicationYear;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
     protected void displayCommonInformaiton(){
         System.out.println("Title : "+this.getTitle());
         System.out.println("Author Name : "+this.getAuthor());
@@ -54,7 +44,4 @@ public abstract class LibraryResource {
 
     public abstract void displayInformation();
 
-    public boolean checkAvailability() {
-        return available;
-    }
 }

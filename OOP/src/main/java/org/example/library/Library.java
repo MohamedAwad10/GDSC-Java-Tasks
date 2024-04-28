@@ -41,37 +41,63 @@ public class Library {
     }
 
     public void addItem(LibraryResource libraryResource) {
-        try{
-            this.libraryResources.add(libraryResource);
+        try {
+            libraryResources.add(libraryResource);
             System.out.println("Item Added Successfully.");
-        } catch (Exception ex){
-            System.err.println("Error : "+ ex.getMessage());
+        } catch (Exception ex) {
+            System.err.println("Error : " + ex.getMessage());
         }
     }
 
-    public void updateItem(LibraryResource oldLibraryResource, LibraryResource newLibraryResource) {
-        if(this.libraryResources.contains(oldLibraryResource)){
-            this.libraryResources.set(this.libraryResources.indexOf(oldLibraryResource), newLibraryResource);
+    public void updateItem(int index, LibraryResource newItem) {
+        if (index >= 0 && index < libraryResources.size()) {
+            libraryResources.set(index, newItem);
             System.out.println("Item Updated Successfully");
         } else {
             System.out.println("Item Not Found.");
         }
-}
-
-public void deleteItem(LibraryResource libraryResource) {
-    if(this.libraryResources.contains(libraryResource)) {
-        this.libraryResources.remove(libraryResource);
-        System.out.println("Item Deleted Successfully");
-    } else{
-        System.out.println("Item Not found.");
     }
-}
 
-public void displayAllItems() {
-    System.out.println("Library items : ");
-    for (LibraryResource libResource : this.libraryResources) {
-        libResource.displayInformation();
-        System.out.println();
+    public void updateItem(LibraryResource oldItem, LibraryResource newItem) {
+        if (libraryResources.contains(oldItem)) {
+            libraryResources.set(libraryResources.indexOf(oldItem), newItem);
+            System.out.println("Item Updated Successfully");
+        } else {
+            System.out.println("Item Not Found.");
+        }
     }
-}
+
+    public void deleteItem(int index) {
+        if (index >=0 && index < libraryResources.size()) {
+            libraryResources.remove(index);
+            System.out.println("Item Deleted Successfully");
+        } else {
+            System.out.println("Item Not found in specific index.");
+        }
+    }
+
+    public void deleteItem(LibraryResource item) {
+        if (libraryResources.contains(item)) {
+            libraryResources.remove(item);
+            System.out.println("Item Deleted Successfully");
+        } else {
+            System.out.println("Item Not found.");
+        }
+    }
+
+    public void displayAllItems() {
+        System.out.println("Library items : ");
+        for (LibraryResource item : libraryResources) {
+            item.displayInformation();
+            System.out.println();
+        }
+    }
+
+    public void checkAvailability(LibraryResource item) {
+        if(this.libraryResources.contains(item)){
+            System.out.println("Item is Available.");
+        } else {
+            System.out.println("Item isn't Available.");
+        }
+    }
 }
