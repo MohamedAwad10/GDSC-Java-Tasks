@@ -13,7 +13,6 @@ public class WordsCount {
 
         readDataFromUrlAndStoreInFile(link, fileName);
         countWordsFromFile(fileName);
-
     }
 
     public static void readDataFromUrlAndStoreInFile(String link, String fileName){
@@ -22,8 +21,8 @@ public class WordsCount {
             URL url = new URL(link);
 
             // Read data From URL and store it in file
-            try (InputStreamReader inputFile = new InputStreamReader(url.openStream());
-                 BufferedReader bufferedInput = new BufferedReader(inputFile);
+            try (InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
+                 BufferedReader bufferedInput = new BufferedReader(inputStreamReader);
                  FileWriter fileWriter = new FileWriter(fileName);
                  BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             ) {
@@ -48,7 +47,7 @@ public class WordsCount {
 
         // Count the number of words in the file
         try (Scanner scanner = new Scanner(new FileInputStream(fileName))) {
-            scanner.useDelimiter("[a-zA-Z']+");
+            scanner.useDelimiter("[^a-zA-Z]+");
             int count = 0;
             while (scanner.hasNext()) {
                 scanner.next();
