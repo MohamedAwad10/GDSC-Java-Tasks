@@ -8,15 +8,25 @@ import java.util.Scanner;
 public class WordsCount {
     public static void main(String[] args) {
 
+        String link = "https://liveexample.pearsoncmg.com/data/Lincoln.txt";
+        String fileName = "Lincoln.txt";
+
+        readDataFromUrlAndStoreInFile(link, fileName);
+        countWordsFromFile(fileName);
+
+    }
+
+    public static void readDataFromUrlAndStoreInFile(String link, String fileName){
+
         try {
-            URL url = new URL("https://liveexample.pearsoncmg.com/data/Lincoln.txt");
+            URL url = new URL(link);
 
             // Read data From URL and store it in file
             try (InputStreamReader inputFile = new InputStreamReader(url.openStream());
                  BufferedReader bufferedInput = new BufferedReader(inputFile);
-                 FileWriter fileWriter = new FileWriter("Lincoln.txt");
+                 FileWriter fileWriter = new FileWriter(fileName);
                  BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                 ) {
+            ) {
 
                 String line = "";
                 while ((line = bufferedInput.readLine()) != null) {
@@ -25,25 +35,29 @@ public class WordsCount {
                 }
 
             } catch (FileNotFoundException e) {
-                System.out.println("File Error : " + e.getMessage());
+                System.err.println("File Error : " + e.getMessage());
             } catch (IOException e) {
-                System.out.println("IO Exception : " + e.getMessage());
-            }
-
-            // Count the number of words in the file
-            try (Scanner scanner = new Scanner(new FileInputStream("Lincoln.txt"))) {
-                int count = 0;
-                while (scanner.hasNext()) {
-                    scanner.next();
-                    count++;
-                }
-                System.out.println("Number of words : " + count);
-
-            } catch (FileNotFoundException e) {
-                System.out.println("File not found: " + e.getMessage());
+                System.err.println("IO Exception : " + e.getMessage());
             }
         } catch (MalformedURLException e){
-            System.out.println("URL Exception : "+ e.getMessage());
+            System.err.println("URL Exception : "+ e.getMessage());
+        }
+    }
+
+    public static void countWordsFromFile(String fileName) {
+
+        // Count the number of words in the file
+        try (Scanner scanner = new Scanner(new FileInputStream(fileName))) {
+            scanner.useDelimiter("[a-zA-Z']+");
+            int count = 0;
+            while (scanner.hasNext()) {
+                scanner.next();
+                count++;
+            }
+            System.out.println("Number of words : " + count);
+
+        } catch (FileNotFoundException e) {
+            System.err.println("File Exception"+ e.getMessage());
         }
     }
 }
