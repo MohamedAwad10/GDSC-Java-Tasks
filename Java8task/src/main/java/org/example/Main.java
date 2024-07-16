@@ -12,8 +12,7 @@ public class Main {
         Stream<Product> filterdData1 = products.stream().filter(p -> p.getCategory().equals("Books"));
         System.out.println("Products belongs to Books category : ");
         filterdData1.forEach(
-                product -> System.out.println("id: "+product.getId()+ ", name: " +product.getName()
-                        + ", category: " +product.getCategory()+ ", price: " +product.getPrice())
+                product -> System.out.println(product.toString())
         );
         System.out.println("-----------------------------------------------------------------");
 
@@ -22,8 +21,7 @@ public class Main {
                 && p.getPrice() > 100).toList();
         System.out.println("Products belongs to Books category with price greater than 100 : ");
         filterdData2.forEach(
-                product -> System.out.println("id: "+product.getId()+ ", name: " +product.getName()
-                        + ", category: " +product.getCategory()+ ", price: " +product.getPrice())
+                product -> System.out.println(product.toString())
         );
         System.out.println("-----------------------------------------------------------------");
 
@@ -35,8 +33,7 @@ public class Main {
                 }).toList();
 
         filterdData3.forEach(
-                product -> System.out.println("id: "+product.getId()+ ", name: " +product.getName()
-                        + ", category: " +product.getCategory()+ ", price: " +product.getPrice())
+                product -> System.out.println(product.toString())
         );
 
 //        filterdData3.forEach(
@@ -46,8 +43,8 @@ public class Main {
         System.out.println("-----------------------------------------------------------------");
 
         // Exercise 4 — Get the cheapest products of “Books” category
-        List<Product> filterdData4 = products.stream().filter(p -> p.getCategory().equals("Books"))
-                .toList();
-        System.out.println("the cheapest products of “Books” category : ");
+        Product cheapestProducts = products.stream().filter(p -> p.getCategory().equals("Books"))
+                .min((p1, p2) -> p1.getPrice() > p2.getPrice() ? 1:-1).get();
+        System.out.println("the cheapest products of “Books” category : "+cheapestProducts.toString());
     }
 }
