@@ -1,0 +1,23 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>FactorialServlet</servlet-name>
+    <servlet-class>main.task1.FactorialServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CalculateAgeServlet</servlet-name>
+    <servlet-class>main.task2.CalculateAgeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FactorialServlet</servlet-name>
+    <url-pattern>/factorialservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CalculateAgeServlet</servlet-name>
+    <url-pattern>/calculateage</url-pattern>
+  </servlet-mapping>
+</web-app>
