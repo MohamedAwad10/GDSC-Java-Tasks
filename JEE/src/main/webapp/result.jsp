@@ -21,10 +21,10 @@
     %>
     <h1 style="color: white; background-color: green;">Result</h1>
     <h2>Age:</h2>
-    <h2><%= days %></h2>
-    <h2><%= hours %></h2>
-    <h2><%= minutes %></h2>
-    <h2><%= seconds %></h2>
+    <h2><%= days %> days</h2>
+    <h2>or <%= hours %> hours</h2>
+    <h2>or <%= minutes %> minutes</h2>
+    <h2>or <%= seconds %> seconds</h2>
     <% } %>
 </body>
 </html>
